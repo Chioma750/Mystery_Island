@@ -22,26 +22,34 @@
 
 
 
-def main_menu():
-    while True:
-        print("1")
-        print("2")
-        print("3")
-        print("q")
+# def main_menu():
+#     while True:
+#         print("1")
+#         print("2")
+#         print("3")
+#         print("q")
 
-        choice = input("choose an option from 1, 2, 3 and q: ")
+#         choice = input("choose an option from 1, 2, 3 and q: ")
 
-        if choice == "1":
-            print("Success")
-        elif choice == "2":
-            print("Success")
-        elif choice == "3":
-            print("Success")
-        elif choice == "q":
-            print("Quitting...")
-            break
-        else:
-            print("Invalid option, Please try again.")
+#         if choice == "1":
+#             print("Success")
+#         elif choice == "2":
+#             print("Success")
+#         elif choice == "3":
+#             print("Success")
+#         elif choice == "q":
+#             print("Quitting...")
+#             break
+#         else:
+#             print("Invalid option, Please try again.")
 
-if __name__ == "__main__":
-    main_menu()
+# if __name__ == "__main__":
+#     main_menu()
+
+
+
+def is_even(n):
+    return n % 2 == 0
+    
+assert is_even(8) == True
+assert is_even(5) == False
