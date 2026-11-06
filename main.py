@@ -14,7 +14,6 @@ player = {
     "location": "Beach",
     "inventory": []
 }
-print(player)
 
 game_running = True
 
@@ -26,12 +25,16 @@ while game_running:
 
     choice = input("Enter a choice from 1 to 4: ")
 
-    if choice == "2":
-        player["inventory"]
+    if choice == "1":
+        print(player["location"])
+        # Nested dictionary access.
+        print(locations[player["location"]])
+    elif choice == "2":
+        print(player["inventory"])
     elif choice == "3":
-        player["name"]
-        player["energy"]
-        player["location"]
+        print(player["name"])
+        print(player["energy"])
+        print(player["location"])
     elif choice == "4":
         game_running = False
         print("Quitting...")
