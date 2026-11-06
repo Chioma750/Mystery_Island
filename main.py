@@ -29,10 +29,13 @@ while game_running:
         print(player["location"]) 
         # Nested dictionary access.
         print(locations[player["location"]])
+
         destination = input("Where would you like to go: ")
 
         if destination in locations[player["location"]]:
             player["location"] = destination
+        else:
+            print("You cannot travel there from this location.")
 
     elif choice == "2":
         print(player["inventory"])
@@ -45,4 +48,4 @@ while game_running:
         print("Quitting...")
     else:
         print("Invalid input, choose from 1 to 4.")
-        
+     
