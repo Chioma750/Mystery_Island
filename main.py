@@ -34,15 +34,18 @@ while game_running:
 
         if destination in locations[player["location"]]:
             player["location"] = destination
-            player["energy"] -= 1
 
+            if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
+                player["inventory"].append("Rope")
+                print("You have collected the Rope!")
+            
+            player["energy"] -= 1
             if player["energy"] == 0:
                 game_running = False
                 print("You have run out of energy, Game Over!")
         else:
             print("You cannot travel there from this location.")
 
-        if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
     elif choice == "2":
         print(player["inventory"])
     elif choice == "3":
