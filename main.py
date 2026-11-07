@@ -34,6 +34,11 @@ while game_running:
 
         if destination in locations[player["location"]]:
             player["location"] = destination
+            player["energy"] -= 1
+
+            if player["energy"] == 0:
+                game_running = False
+                print("You have run out of energy, Game Over!")
         else:
             print("You cannot travel there from this location.")
 
