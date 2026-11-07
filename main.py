@@ -42,6 +42,7 @@ while game_running:
         else:
             print("You cannot travel there from this location.")
 
+        if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
     elif choice == "2":
         print(player["inventory"])
     elif choice == "3":
