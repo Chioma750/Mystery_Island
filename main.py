@@ -38,7 +38,11 @@ while game_running:
             if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
                 player["inventory"].append("Rope")
                 print("You have collected the Rope!")
-            
+
+            if player["location"] == "Cave" and "Lantern" not in player["inventory"]:
+                player["inventory"].append("Lantern")
+                print("You have collected the Lantern!")
+
             player["energy"] -= 1
             if player["energy"] == 0:
                 game_running = False
