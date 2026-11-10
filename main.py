@@ -43,6 +43,12 @@ while game_running:
                 player["inventory"].append("Lantern")
                 print("You have collected the Lantern!")
 
+            if destination == "Old Bridge" and "Rope" not in player["inventory"]:
+                print("A Rope is required to cross the Old Bridge.")
+            else:
+                player["location"] = destination
+                player["energy"] -= 1
+
             player["energy"] -= 1
             if player["energy"] == 0:
                 game_running = False
