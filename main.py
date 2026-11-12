@@ -33,24 +33,26 @@ while game_running:
         destination = input("Where would you like to go: ")
 
         if destination in locations[player["location"]]:
-
-            if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
-                player["inventory"].append("Rope")
-                print("You have collected the Rope!")
-
-            if player["location"] == "Cave" and "Lantern" not in player["inventory"]:
-                player["inventory"].append("Lantern")
-                print("You have collected the Lantern!")
-
+        
             if destination == "Old Bridge" and "Rope" not in player["inventory"]:
                 print("A Rope is required to cross the Old Bridge.")
             else:
                 player["location"] = destination
+
+                if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
+                    player["inventory"].append("Rope")
+                    print("You have collected the Rope!")
+
+                if player["location"] == "Cave" and "Lantern" not in player["inventory"]:
+                    player["inventory"].append("Lantern")
+                    print("You have collected the Lantern!")
+
+               
                 player["energy"] -= 1
 
-            if player["energy"] == 0:
-                game_running = False
-                print("You have run out of energy, Game Over!")
+                if player["energy"] == 0:
+                    game_running = False
+                    print("You have run out of energy, Game Over!")
         else:
             print("You cannot travel there from this location.")
 
@@ -65,4 +67,3 @@ while game_running:
         print("Quitting...")
     else:
         print("Invalid input, choose from 1 to 4.")
-     
