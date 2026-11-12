@@ -47,7 +47,6 @@ while game_running:
                     player["inventory"].append("Lantern")
                     print("You have collected the Lantern!")
 
-               
                 player["energy"] -= 1
 
                 if player["energy"] == 0:
@@ -58,12 +57,15 @@ while game_running:
 
     elif choice == "2":
         print(player["inventory"])
+
     elif choice == "3":
         print(player["name"])
         print(player["energy"])
         print(player["location"])
+
     elif choice == "4":
         game_running = False
         print("Quitting...")
+        
     else:
         print("Invalid input, choose from 1 to 4.")
