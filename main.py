@@ -21,9 +21,10 @@ while game_running:
     print("1. Explore location")
     print("2. View Inventory")
     print("3. View Player Status")
-    print("4. Quit Game")
+    print("4. Restore Beacon")
+    print("5. Quit Game")
 
-    choice = input("Enter a choice from 1 to 4: ")
+    choice = input("Enter a choice from 1 to 5: ")
 
     if choice == "1":
         print(player["location"]) 
@@ -64,6 +65,12 @@ while game_running:
         print(player["location"])
 
     elif choice == "4":
+        if player["location"] == "Lighthouse" and "Lantern" in player["inventory"]:
+            print("Beacon Restored Successfully")
+            print("Congratulations! The rescue boat has found you!")
+            game_running = False
+
+    elif choice == "5":
         game_running = False
         print("Quitting...")
         
