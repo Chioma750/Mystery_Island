@@ -70,7 +70,7 @@ while game_running:
             print("Congratulations! The rescue boat has found you!")
             game_running = False
         else:
-            print("You do not have a Lantern. Beacon cannot be restored.")
+            print("You do not have a Lantern. The beacon cannot be restored.")
 
     elif choice == "5":
         game_running = False
