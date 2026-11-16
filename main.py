@@ -92,3 +92,12 @@ while replay_game:
             
         else:
             print("Invalid input, choose from 1 to 5.")
+
+    replay = input("Would you like to play again? (yes/no): ")
+    
+    if replay.lower() == "yes":
+        replay_game = True
+    elif replay.lower() == "no":
+        replay_game = False
+    else:
+        print("Invalid Input")
