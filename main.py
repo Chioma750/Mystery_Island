@@ -8,6 +8,7 @@ print("2. You need the Rope to cross the Old Bridge")
 print("3. You need the Lantern to restore the Lighthouse beacon.")
 print("4. You start with 5 energy points, and each successful movement costs 1 energy point.")
 print("5. Restore the beacon to bring the rescue boat.")
+print()
 
 locations = {
     "Beach": ["Jungle"],
@@ -89,15 +90,17 @@ while replay_game:
         elif choice == "5":
             game_running = False
             print("Quitting...")
+            # break
             
         else:
             print("Invalid input, choose from 1 to 5.")
 
     replay = input("Would you like to play again? (yes/no): ")
+
+    while replay.lower() != "yes" and replay.lower() != "no":
+        print("Invalid input. Please enter yes or no")
+        replay = input("Would you like to play again? (yes/no): ")
     
-    if replay.lower() == "yes":
-        replay_game = True
-    elif replay.lower() == "no":
+    if replay.lower() == "no":
         replay_game = False
-    else:
-        print("Invalid Input")
+    
