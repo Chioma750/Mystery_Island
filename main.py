@@ -10,7 +10,6 @@ def show_instructions():
     print("4. You start with 5 energy points, and each successful movement costs 1 energy point.")
     print("5. Restore the beacon to bring the rescue boat.")
     print()
-show_instructions()
 
 locations = {
     "Beach": ["Jungle"],
@@ -19,10 +18,6 @@ locations = {
     "Old Bridge": ["Cave", "Lighthouse"],
     "Lighthouse": ["Old Bridge"]
 }
-
-replay_game = True 
-
-while replay_game:
 
 def create_player():
     player_name = input("What is your name: ")
@@ -110,16 +105,28 @@ def restore_beacon(player):
         print("Beacon Restored Successfully")
         print("Congratulations! The rescue boat has found you!")
         return True
-    else:
+    elif "Lantern" not in player["inventory"]:
         print("You do not have a Lantern. The beacon cannot be restored.")
         return False
+    else:
+        print("Player has the Lantern but isn't at the Lighthouse.")
+        return False
 
-    replay = input("Would you like to play again? (yes/no): ")
+def main():
+    replay_game = True 
+    show_instructions()
 
-    while replay.lower() != "yes" and replay.lower() != "no":
-        print("Invalid input. Please enter yes or no")
+    while replay_game:
+        play_game()
         replay = input("Would you like to play again? (yes/no): ")
+
+        while replay.lower() != "yes" and replay.lower() != "no":
+            print("Invalid input. Please enter yes or no")
+            replay = input("Would you like to play again? (yes/no): ")
     
-    if replay.lower() == "no":
-        replay_game = False
+        if replay.lower() == "no":
+            replay_game = False
+
+if __name__ == "__main__":
+    main()
     
