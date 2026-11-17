@@ -23,6 +23,7 @@ locations = {
 replay_game = True 
 
 while replay_game:
+
 def create_player():
     player_name = input("What is your name: ")
 
@@ -33,6 +34,9 @@ def create_player():
         "inventory": []
     }
     return player
+
+def play_game():
+    player = create_player()
 
     game_running = True
 
@@ -46,34 +50,52 @@ def create_player():
         choice = input("Enter a choice from 1 to 5: ")
 
         if choice == "1":
-            print(player["location"]) 
-            # Nested dictionary access.
-            print(locations[player["location"]])
+            if not explore_location(player, locations):
+                game_running = False 
+        elif choice == "2":
+            show_inventory(player)
+        elif choice == "3":
+            show_status(player)
+        elif choice == "4":
+            if restore_beacon(player):
+                game_running = False
+        elif choice == "5":
+            game_running = False
+            print("Quitting...")
+            # break
+        else:
+            print("Invalid input, choose from 1 to 5.")
 
-            destination = input("Where would you like to go: ")
+def explore_location(player, locations):
+    print(player["location"]) 
+    # Nested dictionary access.
+    print(locations[player["location"]])
 
-            if destination in locations[player["location"]]:
+    destination = input("Where would you like to go: ")
+
+    if destination in locations[player["location"]]:
             
-                if destination == "Old Bridge" and "Rope" not in player["inventory"]:
-                    print("A Rope is required to cross the Old Bridge.")
-                else:
-                    player["location"] = destination
+        if destination == "Old Bridge" and "Rope" not in player["inventory"]:
+            print("A Rope is required to cross the Old Bridge.")
+        else:
+            player["location"] = destination
 
-                    if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
-                        player["inventory"].append("Rope")
-                        print("You have collected the Rope!")
+            if player["location"] == "Jungle" and "Rope" not in player["inventory"]:
+                player["inventory"].append("Rope")
+                print("You have collected the Rope!")
 
-                    if player["location"] == "Cave" and "Lantern" not in player["inventory"]:
-                        player["inventory"].append("Lantern")
-                        print("You have collected the Lantern!")
+            if player["location"] == "Cave" and "Lantern" not in player["inventory"]:
+                player["inventory"].append("Lantern")
+                print("You have collected the Lantern!")
 
-                    player["energy"] -= 1
+            player["energy"] -= 1
 
-                    if player["energy"] == 0:
-                        game_running = False
-                        print("You have run out of energy, Game Over!")
-            else:
-                print("You cannot travel there from this location.")
+            if player["energy"] == 0:
+                print("You have run out of energy, Game Over!")
+                return False
+    else:
+        print("You cannot travel there from this location.")
+    return True
 
 def show_inventory(player):
     print(player["inventory"])
@@ -91,14 +113,6 @@ def restore_beacon(player):
     else:
         print("You do not have a Lantern. The beacon cannot be restored.")
         return False
-
-        elif choice == "5":
-            game_running = False
-            print("Quitting...")
-            # break
-            
-        else:
-            print("Invalid input, choose from 1 to 5.")
 
     replay = input("Would you like to play again? (yes/no): ")
 
