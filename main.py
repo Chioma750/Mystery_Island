@@ -1,14 +1,16 @@
-print("=== MYSTERY ISLAND: THE RESCUE MISSION ===")
-print()
-print("=== INSTRUCTIONS ===")
-print("You are stranded on a mysterious island, and need to collect a Rope and a Lantern.")
-print("All you need to do is:")
-print("1. Collect the Rope and the Lantern")
-print("2. You need the Rope to cross the Old Bridge")
-print("3. You need the Lantern to restore the Lighthouse beacon.")
-print("4. You start with 5 energy points, and each successful movement costs 1 energy point.")
-print("5. Restore the beacon to bring the rescue boat.")
-print()
+def show_instructions():
+    print("=== MYSTERY ISLAND: THE RESCUE MISSION ===")
+    print()
+    print("=== INSTRUCTIONS ===")
+    print("You are stranded on a mysterious island, and need to collect a Rope and a Lantern.")
+    print("All you need to do is:")
+    print("1. Collect the Rope and the Lantern")
+    print("2. You need the Rope to cross the Old Bridge")
+    print("3. You need the Lantern to restore the Lighthouse beacon.")
+    print("4. You start with 5 energy points, and each successful movement costs 1 energy point.")
+    print("5. Restore the beacon to bring the rescue boat.")
+    print()
+show_instructions()
 
 locations = {
     "Beach": ["Jungle"],
@@ -21,6 +23,7 @@ locations = {
 replay_game = True 
 
 while replay_game:
+def create_player():
     player_name = input("What is your name: ")
 
     player = {
@@ -29,6 +32,7 @@ while replay_game:
         "location": "Beach",
         "inventory": []
     }
+    return player
 
     game_running = True
 
@@ -71,21 +75,22 @@ while replay_game:
             else:
                 print("You cannot travel there from this location.")
 
-        elif choice == "2":
-            print(player["inventory"])
+def show_inventory(player):
+    print(player["inventory"])
 
-        elif choice == "3":
-            print(player["name"])
-            print(player["energy"])
-            print(player["location"])
+def show_status(player):
+    print(player["name"])
+    print(player["energy"])
+    print(player["location"])
 
-        elif choice == "4":
-            if player["location"] == "Lighthouse" and "Lantern" in player["inventory"]:
-                print("Beacon Restored Successfully")
-                print("Congratulations! The rescue boat has found you!")
-                game_running = False
-            else:
-                print("You do not have a Lantern. The beacon cannot be restored.")
+def restore_beacon(player):
+    if player["location"] == "Lighthouse" and "Lantern" in player["inventory"]:
+        print("Beacon Restored Successfully")
+        print("Congratulations! The rescue boat has found you!")
+        return True
+    else:
+        print("You do not have a Lantern. The beacon cannot be restored.")
+        return False
 
         elif choice == "5":
             game_running = False
