@@ -49,15 +49,18 @@ def play_game():
                 game_running = False 
         elif choice == "2":
             show_inventory(player)
+            print()
         elif choice == "3":
             show_status(player)
+            print()
         elif choice == "4":
             if restore_beacon(player):
                 game_running = False
+                print()
         elif choice == "5":
             game_running = False
             print("Quitting...")
-            # break
+            print()
         else:
             print("Invalid input, choose from 1 to 5.")
 
