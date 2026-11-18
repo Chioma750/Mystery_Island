@@ -1,3 +1,6 @@
+from display import show_instructions
+from game import play_game
+
 def main():
     replay_game = True 
     show_instructions()

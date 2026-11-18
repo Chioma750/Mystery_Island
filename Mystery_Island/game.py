@@ -1,3 +1,8 @@
+from player import create_player
+from locations import locations
+from actions import explore_location, restore_beacon
+from display import show_inventory, show_status
+
 def play_game():
     player = create_player()
 
