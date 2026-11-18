@@ -1,3 +1,3 @@
 # Mystery_Island
 
-Mystery Island is a puzzle adventure game set on a strange, uncharted island full of hidden clues and secrets. As the player, your main goal is to explore different areas, find hidden objects, and solve clever puzzles to uncover the truth behind the island's mysteries such as rescuing a missing relative.
+Mystery Island is a Python text-based adventure game where the player wakes up stranded on an island after a storm with limited energy. To win and escape, the player must explore five distinct locations, gather key items like the Rope and Lantern, and make smart choices to cross a locked bridge. Their main objective is to reach the dark lighthouse and relight its beacon so a rescue boat will arrive before they run out of energy.
