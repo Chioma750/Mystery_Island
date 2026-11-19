@@ -1,4 +1,4 @@
-# python -m unittest discover -s tests -v
+# python3 -m unittest discover -s tests -v
 import unittest
 from unittest.mock import patch
 
@@ -61,7 +61,7 @@ class TestExploreLocation(unittest.TestCase):
         }
 
         with patch("builtins.input", return_value="Jungle"):
-            result = explore_location(player, main.locations)
+            result = explore_location(player, locations)
 
         self.assertEqual(player["location"], "Jungle")
         self.assertEqual(player["energy"], 4)
@@ -76,7 +76,7 @@ class TestExploreLocation(unittest.TestCase):
         }
 
         with patch("builtins.input", return_value="Cave"):
-            result = explore_location(player, main.locations)
+            result = explore_location(player, locations)
 
         self.assertEqual(player["location"], "Beach")
         self.assertEqual(player["energy"], 5)
@@ -90,7 +90,7 @@ class TestExploreLocation(unittest.TestCase):
         }
 
         with patch("builtins.input", return_value="Jungle"):
-            result = explore_location(player, main.locations)
+            result = explore_location(player, locations)
 
         self.assertEqual(player["energy"], 0)
         self.assertFalse(result)
